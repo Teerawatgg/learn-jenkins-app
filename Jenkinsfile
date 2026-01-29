@@ -1,15 +1,26 @@
-pipeline {
-    agent {
-        docker {
-            image 'node:18-alpine' // ใช้ Image นี้ที่มี Node.js มาให้แล้ว
-        }
-    }
-    stages {
-        stage('Test npm') {
-            steps {
-                sh 'npm --version'
-                sh 'node --version'
-            }
-        }
-    }
-}
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/test-results/
+/playwright-report/
+/playwright/.cache/
